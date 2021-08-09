@@ -1,0 +1,33 @@
+﻿@model ReadabilityCalculator.Models.Readability.ReadabilityInput_vm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Readability Calculator</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="width:100%">
+                <label asp-for="InputText" class="control-label"></label>
+                <textarea asp-for="InputText" rows="10" class="form-control" ></textarea>
+                <span asp-validation-for="InputText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,64 @@
+﻿@model ReadabilityCalculator.Models.Readability.ReadabilityResults_vm
+
+@{
+    ViewData["Title"] = "ReadabilityResults";
+}
+
+<h1>ReadabilityResults</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="ReadabilityResults">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="width:100%">
+                <label asp-for="InputText" class="control-label"></label>
+                <textarea asp-for="InputText" rows="10" class="form-control"></textarea>
+                <span asp-validation-for="InputText" class="text-danger"></span>
+            </div>
+            <div class="row" >
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NumberWords" class="control-label"></label>
+                        <input asp-for="NumberWords" class="form-control" />
+                        <span asp-validation-for="NumberWords" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NumberSentences" class="control-label"></label>
+                        <input asp-for="NumberSentences" class="form-control" />
+                        <span asp-validation-for="NumberSentences" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="NumberSyllables" class="control-label"></label>
+                        <input asp-for="NumberSyllables" class="form-control" />
+                        <span asp-validation-for="NumberSyllables" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col" style="margin-left:20%">
+                    <div class="form-group">
+                        <label asp-for="ReadabilityScore" class="control-label"></label>
+                        <input asp-for="ReadabilityScore" class="form-control" />
+                        <span asp-validation-for="ReadabilityScore" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                
+</form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
